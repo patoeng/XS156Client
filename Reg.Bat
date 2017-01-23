@@ -1,0 +1,1 @@
+D:\apps\SCH_SEMB_XS156_INDIVIDUAL_LABEL_VB6>c:\Windows\Microsoft.NET\Framework\v2.0.50727\RegAsm.exe XS156Client35.dll /tlb:XS156Client35.tlb /codebase
