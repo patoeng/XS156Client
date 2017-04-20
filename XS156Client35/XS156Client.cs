@@ -95,8 +95,8 @@ namespace XS156Client35
                                             _thisEquipment);
                                     data.LineGroupName = GetLineGroupByGuid(new Guid(data.EquipmentLineGroupIdentity));
                                     TrackingDataBag = data;
-                                    TrackingDataBagUpdatedEvent(TrackingDataBag);
-                                }
+                            TrackingDataBagUpdatedEvent?.Invoke(TrackingDataBag);
+                        }
                                 if (TrackingReferenceNewlyLoaded != null &&
                                     (_trackingData.ReferenceProcess.LineGroup != Guid.Empty || firstLoad == true))
                                 {
@@ -110,7 +110,7 @@ namespace XS156Client35
                                                _thisEquipment);
                                         data.LineGroupName = GetLineGroupByGuid(new Guid(data.EquipmentLineGroupIdentity));
                                         TrackingDataBag = data;
-                                        TrackingReferenceNewlyLoaded(TrackingDataBag);
+                                        TrackingReferenceNewlyLoaded?.Invoke(TrackingDataBag);
                                     }
                                 }
                                 firstLoad = false;
@@ -240,7 +240,7 @@ namespace XS156Client35
         }
         public int UpdateRejectedQuantity(int deltaRejectedQuantity)
         {
-            _thisEquipmentReferenceProcess.IncreaseOutput(deltaRejectedQuantity);
+            _thisEquipmentReferenceProcess.IncreaseRejected(deltaRejectedQuantity);
             _thisEquipmentReferenceProcess.Update();
             return _thisEquipmentReferenceProcess.RejectedQuantity;
         }
